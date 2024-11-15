@@ -1,4 +1,4 @@
-# mysql-web-adminer
+# mysql-web-adminer-cte-rec
 
 ## Description
 Creates a small database table
