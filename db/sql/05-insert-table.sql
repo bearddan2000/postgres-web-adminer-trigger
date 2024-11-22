@@ -1,8 +1,2 @@
-TRUNCATE `animal`.colorLookup;
-
-INSERT INTO `animal`.colorLookup (id, color)
-VALUES
-(default, 'White'),
-(default, 'Grey'),
-(default, 'Black'),
-(default, 'Brown');
+INSERT INTO "public"."audit_table_name" ("table_name")
+VALUES ('DOG');

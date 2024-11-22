@@ -1,15 +1,9 @@
-CREATE VIEW `animal`.breed_count AS
-WITH RECURSIVE CTE_Id (id) AS
-(
-  SELECT 1
-  union all
-  SELECT id+1
-  from CTE_Id
-  where id < 4
-)
+DROP VIEW IF EXISTS "public"."audit_view";
 
-SELECT b.id, b.breed as 'Breed', COUNT(*) as 'Breed Count'
-FROM CTE_Id AS a
-JOIN animal.breedLookup AS b ON b.id = a.id
-RIGHT JOIN animal.dog AS c ON c.breedId = a.id
-GROUP BY c.breedId;
+CREATE VIEW "public"."audit_view" AS
+SELECT a.id, "userId", CAST (date_part('month', changed) as int) as Month,
+  CAST (date_part('day', changed) as int)  as Day,
+  action, "table_name" as Table, "old_val", "new_val"
+FROM audit as a
+JOIN audit_action as b ON a."actionId" = b."id"
+JOIN audit_table_name as c ON a."tblId" = c."id";

@@ -1,4 +1,4 @@
-# mysql-web-adminer-cte-rec
+# postgres-web-adminer-trigger
 
 ## Description
 Creates a small database table
@@ -6,10 +6,10 @@ called `dog`.
 
 ## Tech stack
 - phpAdmin
-- mysql
+- postgres
 
 ## Docker stack
-- mariadb:latest
+- postgres:alpine
 - adminer
 
 ## To run
